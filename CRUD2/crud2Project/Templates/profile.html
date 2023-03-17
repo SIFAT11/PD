@@ -1,0 +1,72 @@
+{% extends 'Home.html'%} 
+{%load static%}
+{%block profile%}{%endblock%}
+{%block title%} Registration {%endblock%}
+{%block content%}
+<br><br><br>
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li>{{message}}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+    <div class="container" style="background-color: rgb(216, 205, 178);">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label  class="form-label">First_Name</label>
+              <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" name="First_Name">
+            </div>
+        
+            <div class="mb-3">
+                <label  class="form-label">Last_Name</label>
+                <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" name="Last_Name">
+              </div>
+        
+        
+            <div class="mb-3">
+                <label  class="form-label">E_mail</label>
+                <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" name="E_mail">
+              </div>
+        
+            <div class="mb-3">
+                <label  class="form-label"> Phon_number</label>
+                <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" name=" Phon_number">
+              </div>
+        
+            
+            <div class="mb-3">
+                <label  class="form-label">Age</label>
+                <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" name="Age">
+              </div>
+            
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Select Gender </label>
+                <select class="form-control" id="exampleFormControlSelect1" name="Gender">
+                  <option>Others</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </div>
+        
+              
+            <div class="mb-3">
+                <label  class="form-label">NID_Number</label>
+                <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" name="NID_Number">
+              </div>
+            
+              <div class="mb-3">
+                <label class="form-label">Addres</label>
+                <input type="text" class="form-control" name="Address">
+              </div>
+            
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Example file input</label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="Image">
+              </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+{%endblock%}

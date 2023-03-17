@@ -1,0 +1,13 @@
+*{
+margin: 0;
+padding: 0;
+}
+/*For font-awesome icons in Placeholder*/
+.placeicon {
+	font-family: fontawesome;
+}
+
+.custom-control-label::before {
+	background-color: #dee2e6;
+	border: #dee2e6;     
+}

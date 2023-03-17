@@ -1,0 +1,77 @@
+{% extends 'Home.html'%} 
+{%load static%}
+{%block profile%}{%endblock%}
+{%block title%} Update {%endblock%}
+{%block content%}
+<br><br><br>
+    <div class="container" style="background-color: rgb(216, 205, 178);">
+      {% if messages %}
+        <ul class="messages" style="color: darkred;">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% if updatep_Prof %}
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label  class="form-label">First_Name</label>
+              <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"value="{{updatep_Prof.First_Name}}"  name="First_Name">
+            </div>
+        
+            <div class="mb-3">
+                <label  class="form-label">Last_Name</label>
+                <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" value="{{updatep_Prof.Last_Name}}" name="Last_Name">
+              </div>
+        
+        
+            <div class="mb-3">
+                <label  class="form-label">E_mail</label>
+                <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"value="{{updatep_Prof.E_mail}}"  name="E_mail">
+              </div>
+        
+            <div class="mb-3">
+                <label  class="form-label"> Phon_number</label>
+                <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" value="{{updatep_Prof.Phon_number}}" name=" Phon_number">
+              </div>
+        
+            
+            <div class="mb-3">
+                <label  class="form-label">Age</label>
+                <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" value="{{updatep_Prof.Age}}" name="Age">
+              </div>
+            
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Select Gender </label>
+                <select class="form-control" id="exampleFormControlSelect1" value="{{updatep_Prof.Gender}}" name="Gender">
+                  <option>Others</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </div>
+        
+              
+            <div class="mb-3">
+                <label  class="form-label">NID_Number</label>
+                <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" value="{{updatep_Prof.NID_Number}}" name="NID_Number">
+              </div>
+            
+              <div class="mb-3">
+                <label class="form-label">Addres</label>
+                <input type="text" class="form-control" value="{{updatep_Prof.Address}}" name="Address">
+              </div>
+
+              <img src="{{updatep_Prof.Image.url}}" alt="..." style="width: 50px; height: 50px;">
+            <input type="file" value="fileupload" id="fileupload" name="Image" >
+            <!---
+            <img src="{{updatep_Prof.Image.url}}" class="card-img-top" alt="..." style="width: 50px; height: 50px;">
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Example file input</label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1" value="{{updatep_Prof.Image.url}}" name="Image">
+              </div>-->
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        {%endif%}
+    </div>
+{%endblock%}
